@@ -18,7 +18,6 @@ class CalculationsController < ApplicationController
     @character_count_without_spaces = @text.gsub(/\s+/,"").length
 
     # @occurrences = @special_word.count
-    # This you have to do a little more work on. Basically, I made the text into an array, then made a loop to test how many words matched the special word. Right now, this method you have here doesn't do anything
     
     # ================================================================================
     # Your code goes above.
@@ -41,9 +40,7 @@ class CalculationsController < ApplicationController
 
     @monthly_payment = ( (@apr/12)/100 /(1 - (1+ (@apr/12)/100)**-(@years*12 )))*@principal
    
-    # I got this to work, but the monthly payment was wrong. Maybe check and make sure you're calculating the monthly payment correctlt? it should be
-    #  M = P * ( J / (1 - (1 + J)-N)) where m =monthly payment, J=apr/12, and n = number of payments = years of the loan*12 p = principal
- 
+    
   
     # ================================================================================
     # Your code goes above.
@@ -97,38 +94,26 @@ class CalculationsController < ApplicationController
 
     @range = @maximum - @minimum
 
-    @median = @numbers.median
-
+    @median = 
+ 
     @sum = @numbers.sum
 
     @mean = @sum/@count
-
-    @variance = 
     
-    @standard_deviation = 
+    @sum_square_averages = []
     
-  #  variance = 0
-#contents.each do |x|
- # variance = variance + (x[1].to_f - avg)**2
-#variance = variance / contents.length
-#variance = Math.sqrt(variance)
-
-
-#def sample_variance
-     # m = self.mean
-     # sum = self.inject(0){|accum, i| accum +(i-m)**2 }
-     # sum/(self.length - 1).to_f
-   # end
-
-  #  def standard_deviation
-     # return Math.sqrt(self.sample_variance)
-   # end
-
+    @numbers.each do |num|
+      diff = num - @mean
+      square = diff**2
+      @sum_square_averages.push(square)
+    end
+    
+    @variance = @sum_square_averages.sum / @count
+    
+    @standard_deviation = Math.sqrt(@variance)
+    
     @mode = "Replace this string with your answer."
     
-    #arr = [ 1, 3, 44, 3 ]
-    #most_frequent_item = arr.uniq.max_by{ |i| arr.count( i ) }
-
     # ================================================================================
     # Your code goes above.
     # ================================================================================
