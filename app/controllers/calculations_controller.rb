@@ -42,8 +42,8 @@ class CalculationsController < ApplicationController
     # The principal value the user input is in the decimal @principal.
     # ================================================================================
 
-  # @monthly_payment = ((@apr/12)*@principal)/(1-(1+@apr)^(-@years*12)
-  #for whatever reason, if I unhash the above code, i get the '505' error and it won't let me see anything
+    @monthly_payment = ((@apr/12)*@principal)/(1-(1+@apr)*(-@years*12))
+ 
   
     # ================================================================================
     # Your code goes above.
