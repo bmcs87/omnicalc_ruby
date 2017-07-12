@@ -17,9 +17,8 @@ class CalculationsController < ApplicationController
 
     @character_count_without_spaces = @text.gsub(/\s+/,"").length
 
-    @occurrences = "HELLO"
-
-    @occurrences = @special_word.count
+    # @occurrences = @special_word.count
+    # This you have to do a little more work on. Basically, I made the text into an array, then made a loop to test how many words matched the special word. Right now, this method you have here doesn't do anything
     
     # ================================================================================
     # Your code goes above.
@@ -27,10 +26,6 @@ class CalculationsController < ApplicationController
 
     render("word_count.html.erb")
   end
-
-##for some reason, this is broken somehow too.  if i unhash it,
-##I get the 503 error.  I don't think I made any changes to this and
-##it was working earlier.
 
   def loan_payment
     @apr = params[:annual_percentage_rate].to_f
@@ -45,6 +40,8 @@ class CalculationsController < ApplicationController
     # ================================================================================
 
     @monthly_payment = ((@apr/12)*@principal)/(1-(1+@apr)*(-@years*12))
+    # I got this to work, but the monthly payment was wrong. Maybe check and make sure you're calculating the monthly payment correctlt? it should be
+    #  M = P * ( J / (1 - (1 + J)-N)) where m =monthly payment, J=apr/12, and n = number of payments = years of the loan*12 p = principal
  
   
     # ================================================================================
