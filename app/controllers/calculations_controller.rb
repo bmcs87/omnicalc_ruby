@@ -97,7 +97,7 @@ class CalculationsController < ApplicationController
 
     @range = @maximum - @minimum
 
-    @median = @numbers
+    @median = @numbers.median
 
     @sum = @numbers.sum
 
