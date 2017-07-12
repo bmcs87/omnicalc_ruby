@@ -17,7 +17,7 @@ class CalculationsController < ApplicationController
 
     @character_count_without_spaces = @text.gsub(/\s+/,"").length
 
-    @occurrences = @special_word.count.while
+    @occurrences = @special_word.count
     
     # ================================================================================
     # Your code goes above.
@@ -25,6 +25,10 @@ class CalculationsController < ApplicationController
 
     render("word_count.html.erb")
   end
+
+##for some reason, this is broken somehow too.  if i unhash it,
+##I get the 503 error.  I don't think I made any changes to this and
+##it was working earlier.
 
   def loan_payment
     @apr = params[:annual_percentage_rate].to_f
@@ -38,8 +42,9 @@ class CalculationsController < ApplicationController
     # The principal value the user input is in the decimal @principal.
     # ================================================================================
 
-    @monthly_payment = "Replace this string with your answer."
-
+  # @monthly_payment = ((@apr/12)*@principal)/(1-(1+@apr)^(-@years*12)
+  #for whatever reason, if I unhash the above code, i get the '505' error and it won't let me see anything
+  
     # ================================================================================
     # Your code goes above.
     # ================================================================================
@@ -98,11 +103,31 @@ class CalculationsController < ApplicationController
 
     @mean = @sum/@count
 
-    @variance = "Replace this string with your answer."
+    @variance = 
+    
+    @standard_deviation = 
+    
+  #  variance = 0
+#contents.each do |x|
+ # variance = variance + (x[1].to_f - avg)**2
+#variance = variance / contents.length
+#variance = Math.sqrt(variance)
 
-    @standard_deviation = "Replace this string with your answer."
+
+#def sample_variance
+     # m = self.mean
+     # sum = self.inject(0){|accum, i| accum +(i-m)**2 }
+     # sum/(self.length - 1).to_f
+   # end
+
+  #  def standard_deviation
+     # return Math.sqrt(self.sample_variance)
+   # end
 
     @mode = "Replace this string with your answer."
+    
+    #arr = [ 1, 3, 44, 3 ]
+    #most_frequent_item = arr.uniq.max_by{ |i| arr.count( i ) }
 
     # ================================================================================
     # Your code goes above.
