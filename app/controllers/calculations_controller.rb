@@ -39,10 +39,8 @@ class CalculationsController < ApplicationController
     # The principal value the user input is in the decimal @principal.
     # ================================================================================
 
-    @monthly_payment = @principal * (@apr/12/(1-(1+@apr/12)-@years*12))
-    #@monthly_payment = ((@apr/12)*@principal)/(1-(1+@apr)*(-@years*12))
-    
-    
+    @monthly_payment = ( @apr/12 /(1 - (1+ @apr/12)**-(@years*12 )))*@principal
+   
     # I got this to work, but the monthly payment was wrong. Maybe check and make sure you're calculating the monthly payment correctlt? it should be
     #  M = P * ( J / (1 - (1 + J)-N)) where m =monthly payment, J=apr/12, and n = number of payments = years of the loan*12 p = principal
  
