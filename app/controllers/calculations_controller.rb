@@ -40,7 +40,7 @@ class CalculationsController < ApplicationController
 
     @monthly_payment = ( (@apr/12)/100 /(1 - (1+ (@apr/12)/100)**-(@years*12 )))*@principal
    
-    #new
+    #new change
   
     # ================================================================================
     # Your code goes above.
