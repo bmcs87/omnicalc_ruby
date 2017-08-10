@@ -16,9 +16,9 @@ class CalculationsController < ApplicationController
     @character_count_with_spaces = @text.length
 
     @character_count_without_spaces = @text.gsub(/\s+/,"").length
-
-    # @occurrences = @special_word.count
     
+    #@occurances = @special_word.count
+
     # ================================================================================
     # Your code goes above.
     # ================================================================================
@@ -40,7 +40,7 @@ class CalculationsController < ApplicationController
 
     @monthly_payment = ( (@apr/12)/100 /(1 - (1+ (@apr/12)/100)**-(@years*12 )))*@principal
    
-    
+    #new
   
     # ================================================================================
     # Your code goes above.
@@ -97,7 +97,7 @@ class CalculationsController < ApplicationController
     @median = 
  
     @sum = @numbers.sum
-
+    
     @mean = @sum/@count
     
     @sum_square_averages = []
@@ -111,7 +111,7 @@ class CalculationsController < ApplicationController
     @variance = @sum_square_averages.sum / @count
     
     @standard_deviation = Math.sqrt(@variance)
-    
+
     @mode = "Replace this string with your answer."
     
     # ================================================================================
